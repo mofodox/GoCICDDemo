@@ -41,5 +41,5 @@ jobs: # job to execute
       run: |
         cd virtualRepoFolder
         ls
-        cat myTest.txt
+        cat myText.txt
         cd ..
