@@ -26,6 +26,6 @@ jobs: # job to execute
       uses: actions/checkout@v2.3.4
       
     - name: Check file system # check VM has the files
-    - run: |
+      run: |
         ls
         cat calc.go
