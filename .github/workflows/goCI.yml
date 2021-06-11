@@ -1,1 +1,15 @@
+name: CI setup for go # name the workflow
+on: # on event keyword
+  push: # the event is push
+    branches: [main] # on main branch
 
+jobs: # job to execute
+  my_job:
+    name: My job
+    runs-on: ubuntu-latest # specify OS in VM
+    steps:
+    - name: Print a greeting
+      run: |
+        ls
+        echo "Hello World!"
+      
