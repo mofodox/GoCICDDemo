@@ -46,7 +46,7 @@ jobs: # job to execute
     
     - name: Install dependencies for Go
       run: |
-        go mod init
+        go mod init GoCICDDemo
         go get github.com/franela/goblin
         go get github.com/tebeka/go2xunit
         go mod tidy
