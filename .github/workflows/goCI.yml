@@ -18,3 +18,6 @@ jobs: # job to execute
       with:
         # The Go version to download (if necessary) and use. Supports semver spec and ranges.
         go-version: 1.16.5 # optional
+        
+    - name: Show GO version # verify that GO is installed
+      run: go version # show go version
