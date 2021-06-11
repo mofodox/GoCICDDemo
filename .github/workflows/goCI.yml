@@ -21,3 +21,11 @@ jobs: # job to execute
         
     - name: Show GO version # verify that GO is installed
       run: go version # show go version
+      
+    - name: Checkout our codes # bring repo code to VM
+      uses: actions/checkout@v2.3.4
+      
+    - name: Check file system # check VM has the files
+    - run: |
+        ls
+        cat calc.go
