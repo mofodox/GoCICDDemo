@@ -60,6 +60,24 @@ jobs: # job to execute
       with:
         files: report.xml # make use of a file we created
         
+    - if: ${{ success() }}
+      name: Create upload directory
+      run: mkdir reports
+      
+    - name: Prepare documents
+      run: mv report.xml ./reports
+      
+    - name: Prepare artifacts
+      uses: actions/upload-artifact@v2.2.3
+      with:
+        name: report_document
+        path: reports
+        
+    - name: Download content
+      uses: actions/download-artifact@v2.0.9
+      with:
+        name: report_document
+        
     - if: ${{ failure() }}
       name: Create issues notification
       uses: nashmaniac/create-issue-action@v1.1
