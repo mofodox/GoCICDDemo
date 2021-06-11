@@ -47,7 +47,15 @@ jobs: # job to execute
     - name: Install dependencies for Go
       run: |
         go mod init GoCICDDemo
+        go get github.com/franela/goblin
+        go get github.com/tebeka/go2xunit
         go mod tidy
         go test -v # run test
         go test -v | go2xunit > report.xml # run test and output to report.xml
         ls
+        
+    - name: Publish unit test results
+      uses: EnricoMi/publish-unit-test-result-action@v1.17 # publish unit test report
+      if: always() # always publish
+      with:
+        files: report.xml # make use of a file we created
